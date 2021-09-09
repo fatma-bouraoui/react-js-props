@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import { ProfileComponent } from './profile/ProfileComponent';
+
+
+
 
 function App() {
+const [person, setperson] = useState({
+  name:"fatma",
+  image:"https://static.vecteezy.com/system/resources/thumbnails/000/229/542/small/young-caucasian-woman-as-female-developer-profession.jpg"
+})
+
+const change=()=>{
+  setperson({...person,name:"ala",image:"https://previews.123rf.com/images/antoniodiaz/antoniodiaz1910/antoniodiaz191000037/131073736-handsome-young-male-software-developer-programming-codes-while-working-from-home.jpg"})
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <ProfileComponent person={person}/>
+   <button onClick={change}>click to update</button>
+ 
     </div>
   );
 }
